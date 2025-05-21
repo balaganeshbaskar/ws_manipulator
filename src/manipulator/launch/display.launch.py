@@ -5,7 +5,7 @@ import os
 
 def generate_launch_description():
     pkgPath = launch_ros.substitutions.FindPackageShare(package='manipulator').find('manipulator')
-    urdfModelPath = os.path.join(pkgPath, 'urdf/model.urdf')
+    urdfModelPath = os.path.join(pkgPath, 'urdf/model.urdf.xacro')
     rvizConfigPath = os.path.join(pkgPath, 'config/config.rviz')
 
     print(urdfModelPath)

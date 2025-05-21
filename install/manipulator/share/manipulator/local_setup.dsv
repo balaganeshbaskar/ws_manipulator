@@ -1,2 +1,1 @@
-source;share/manipulator/environment/ament_prefix_path.sh
-source;share/manipulator/environment/path.sh
+/home/bgb_6342/ws_manipulator/build/manipulator/ament_cmake_environment_hooks/local_setup.dsv
