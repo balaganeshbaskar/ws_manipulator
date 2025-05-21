@@ -2,6 +2,17 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="5dof_robot_manipulator">
 
     <xacro:include filename="inertial_macros.xacro"/>
+    <!-- <xacro:include filename="gazebo_control.xacro"/> -->
+
+    <!-- <gazebo>
+        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"/>
+    </gazebo> -->
+
+    <gazebo>
+        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <parameters>/home/bgb_6342/ws_manipulator/src/manipulator/config/ros2_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
 
     <!-- COLOR DEFINITIONS -->
     <material name="blue">
@@ -35,7 +46,7 @@
     <link name="world"/>
 
     <joint name="fixed_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0" />
+        <origin rpy="0 0 0" xyz="0 0 0.1" />
         <parent link="world"/>
         <child link="base_link"/>
     </joint>
@@ -58,6 +69,10 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
 
     <joint name="joint_1" type="revolute">
         <parent link="base_link"/>
@@ -88,6 +103,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="link_1">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <joint name="joint_2" type="revolute">
         <parent link="link_1"/>
         <child link="link_2"/>
@@ -116,6 +135,10 @@
             <origin rpy="0 1.570796 0" xyz="0.205 0 0.05" />
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="link_2">
+        <material>Gazebo/Grey</material>
+    </gazebo>
 
     <joint name="joint_3" type="revolute">
         <parent link="link_2"/>
@@ -146,6 +169,10 @@
         </xacro:inertial_cylinder>
     </link>
 
+    <gazebo reference="link_3">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
     <joint name="joint_4" type="revolute">
         <parent link="link_3"/>
         <child link="link_4"/>
@@ -175,6 +202,10 @@
         </xacro:inertial_cylinder> 
     </link>
 
+    <gazebo reference="link_4">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
     <joint name="joint_5" type="revolute">
         <parent link="link_4"/>
         <child link="link_5"/>
@@ -203,6 +234,43 @@
             <origin rpy="0 0 0" xyz="0 0 0.04" />
         </xacro:inertial_cylinder>
     </link>
+
+    <gazebo reference="link_5">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="joint_1">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint_2">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint_3">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint_4">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint_5">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
 
 
 </robot>

@@ -1,0 +1,1 @@
+/home/bgb_6342/ws_manipulator/src/manipulator/launch/launch_sim.launch.py

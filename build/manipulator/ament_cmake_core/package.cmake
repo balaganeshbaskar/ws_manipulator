@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "manipulator")
 set(manipulator_VERSION "0.0.0")
-set(manipulator_MAINTAINER "bgb_6342 <balaganeshbaskar@gmail.com>")
+set(manipulator_MAINTAINER "bgb_6342 <balaganesh@gmail.com>")
 set(manipulator_BUILD_DEPENDS )
 set(manipulator_BUILDTOOL_DEPENDS "ament_cmake")
 set(manipulator_BUILD_EXPORT_DEPENDS )
