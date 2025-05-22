@@ -24,20 +24,20 @@ def generate_launch_description():
         parameters=[params]
     )
 
-    joint_state_publisher_gui_node = launch_ros.actions.Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui',
-        condition=launch.conditions.IfCondition(gui)
-    )
+    # joint_state_publisher_gui_node = launch_ros.actions.Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher_gui',
+    #     condition=launch.conditions.IfCondition(gui)
+    # )
 
-    rviz_node = launch_ros.actions.Node(
-        package='rviz2',
-        executable='rviz2',
-        output='screen',
-        arguments=['-d', rviz_config_path],
-        parameters=[{'use_sim_time': True}]
-    )
+    # rviz_node = launch_ros.actions.Node(
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     output='screen',
+    #     arguments=['-d', rviz_config_path],
+    #     parameters=[{'use_sim_time': True}]
+    # )
 
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(
@@ -46,6 +46,6 @@ def generate_launch_description():
             description='Flag to enable joint_state_publisher_gui'
         ),
         robot_state_publisher_node,
-        joint_state_publisher_gui_node,
-        rviz_node
+        # joint_state_publisher_gui_node,
+        # rviz_node
     ])
