@@ -44,4 +44,4 @@ def generate_launch_description():
         rsp, #robot_state_publisher
         gazebo,
         spawn_entity,
-    ])
+    ])  
